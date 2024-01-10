@@ -18,8 +18,11 @@
   align-items: center;
   transition: 0.5s;
   border: 2px solid black;
-  padding: 50px;
+  padding: 40px;
   border-radius: 20px;
+  background: aliceblue;
+  transform: scale(1.1);
+  transition: 1s;
 }
 button {
   width: 70%;
@@ -29,6 +32,8 @@ button {
   border-radius: 15px;
   background-color: rgb(65, 209, 65);
   cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 #restaurantList {
