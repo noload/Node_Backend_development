@@ -1,0 +1,7 @@
+<restaurants>
+  <restaurant name="Yellow Chilli" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="KFC " address="Mumbai" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="Burger King" address="New Delhi" lat="47.608940" lng="-122.340141" type="sitdown"/>
+  <restaurant name="Quantum Hotel" address="Pune" lat="47.608940" lng="-122.340141" type="bar"/>
+  
+</restaurants>
