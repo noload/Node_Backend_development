@@ -44,3 +44,11 @@ button {
 
   transition: max-height 0.5s;
 }
+.list {
+
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  list-style: none;
+  background-color: rgb(184, 241, 222);
+}

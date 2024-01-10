@@ -20,6 +20,7 @@ function showRestaurants() {
     const type = restaurants[i].getAttribute("type");
 
     const listItem = document.createElement("li");
+    listItem.className = "list";
     listItem.textContent = `Name : ${name} || Address : ${address}`;
 
     if (type === "sitdown") {
