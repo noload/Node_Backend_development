@@ -29,7 +29,7 @@ async function getPopulation() {
               <li>Name : ${countryName}</li>
               <li>Female Population :${females}</li>
               <li>Male Population : ${male}</li>
-              <li>Total Poulation : ${totalPopulation}</li>
+              <li>Total Population : ${totalPopulation}</li>
             </ul>`;
 }
 countrValue.value = "";
