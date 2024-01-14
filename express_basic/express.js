@@ -97,7 +97,7 @@ app.put("/employee/:empId", (req, res) => {
       employees: employees,
     });
   }
-  res.status(200).json({
+  res.status(404).json({
     msg: "employee data Not Updated ",
     employees: [],
     succeess: false,
@@ -105,8 +105,25 @@ app.put("/employee/:empId", (req, res) => {
   });
 });
 
+app.delete("/employee/:empId", (req, res) => {
+  const { empId } = req.params;
+  const index = employees.findIndex((emp) => emp.empId === empId);
+  if (index > -1) {
+    employees.splice(index, 1);
+    res.status(200).json({
+      msg: "employee data Deleted successfully",
+      succeess: true,
+      employees: employees,
+    });
+  }
 
-
+  res.status(404).json({
+    msg: "employee data Not deleted ",
+    employees: [],
+    succeess: false,
+    err: "Employee not found",
+  });
+});
 
 app.listen(3000, () => {
   console.log("server started on port 3000");
