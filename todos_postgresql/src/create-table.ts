@@ -13,6 +13,19 @@ async function createTable() {
     )
     `)
 
+    const tasks = await client.query(`
+    create table tasks(
+        id serial primary key,
+        user_id integer not null,
+        title varchar(250) not null,
+        description varchar(250) not null,
+        created_At timestamp with time zone default current_timestamp,
+        foreign key (user_id) references users(id) on delete cascade
+
+    )`)
+    console.log(tasks);
+    
+
     const address = await client.query(`
     create table address(
         id serial primary key,
