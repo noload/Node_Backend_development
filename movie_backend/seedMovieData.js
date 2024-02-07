@@ -26,5 +26,3 @@ export const seedingMovieData = async () => {
     newmovie.save();
   }
 };
-
-// seedingMovieData();
