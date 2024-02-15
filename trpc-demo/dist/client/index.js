@@ -17,19 +17,26 @@ const trpc = (0, client_1.createTRPCProxyClient)({
     links: [
         (0, client_1.httpBatchLink)({
             url: "http://localhost:3000",
+            headers() {
+                return __awaiter(this, void 0, void 0, function* () {
+                    return {
+                        Authorization: "Bearer 123",
+                    };
+                });
+            },
         }),
     ],
 });
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        // const resp = await trpc.createTodo.mutate({
-        //   title: "go to gym",
-        //   description: "muscular body done",
-        // });
-        const resp = yield trpc.signUp.mutate({
-            email: "vaibhav@gmail.com",
-            password: "vaibhav@123",
+        const resp = yield trpc.createTodo.mutate({
+            title: "go to gym",
+            description: "muscular body done",
         });
+        // const resp = await trpc.signUp.mutate({
+        //   email: "vaibhav@gmail.com",
+        //   password: "vaibhav@123",
+        // });
         console.log(resp);
     });
 }

@@ -21,6 +21,8 @@ const todoInputType = Zod_1.z.object({
 });
 const appRouter = (0, trpc_1.router)({
     createTodo: trpc_1.publicProcedure.input(todoInputType).mutation((opts) => __awaiter(void 0, void 0, void 0, function* () {
+        const username = opts.ctx.username;
+        console.log(username);
         const title = opts.input.title;
         const description = opts.input.description;
         const todo = yield db_1.Todo.create({
@@ -45,7 +47,7 @@ const appRouter = (0, trpc_1.router)({
             password,
         });
         // let token = jwt.sign({ user }, "hey there");
-        let token = "dkjdj";
+        let token = "123456";
         return {
             user,
             token,
@@ -55,5 +57,12 @@ const appRouter = (0, trpc_1.router)({
 });
 const server = (0, standalone_1.createHTTPServer)({
     router: appRouter,
+    createContext(opts) {
+        let autHeader = opts.req.headers["authorization"];
+        console.log(autHeader);
+        return {
+            username: "123",
+        };
+    },
 });
 server.listen(3000);

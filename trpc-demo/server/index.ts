@@ -11,6 +11,9 @@ const todoInputType = z.object({
 
 const appRouter = router({
   createTodo: publicProcedure.input(todoInputType).mutation(async (opts) => {
+    const username = opts.ctx.username;
+    console.log(username);
+
     const title = opts.input.title;
     const description = opts.input.description;
 
@@ -53,6 +56,13 @@ const appRouter = router({
 
 const server = createHTTPServer({
   router: appRouter,
+  createContext(opts) {
+    let autHeader = opts.req.headers["authorization"];
+    console.log(autHeader);
+    return {
+      username: "123",
+    };
+  },
 });
 
 server.listen(3000);
