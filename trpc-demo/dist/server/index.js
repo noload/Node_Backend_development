@@ -13,6 +13,7 @@ const trpc_1 = require("./trpc");
 const Zod_1 = require("Zod");
 const standalone_1 = require("@trpc/server/adapters/standalone");
 const db_1 = require("../db");
+// import { jwt } from "jsonwebtoken";
 const todoInputType = Zod_1.z.object({
     title: Zod_1.z.string(),
     description: Zod_1.z.string(),
@@ -30,6 +31,26 @@ const appRouter = (0, trpc_1.router)({
             id: todo._id,
             todo,
         };
+    })),
+    signUp: trpc_1.publicProcedure
+        .input(Zod_1.z.object({
+        email: Zod_1.z.string(),
+        password: Zod_1.z.string(),
+    }))
+        .mutation((opts) => __awaiter(void 0, void 0, void 0, function* () {
+        let email = opts.input.email;
+        let password = opts.input.password;
+        const user = yield db_1.User.create({
+            email,
+            password,
+        });
+        // let token = jwt.sign({ user }, "hey there");
+        let token = "dkjdj";
+        return {
+            user,
+            token,
+        };
+        //
     })),
 });
 const server = (0, standalone_1.createHTTPServer)({

@@ -13,4 +13,10 @@ const todoSchema = new mongoose.Schema({
   },
 });
 
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+});
+
 export const Todo = mongoose.model("todo", todoSchema);
+export const User = mongoose.model("user", userSchema);

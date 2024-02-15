@@ -12,11 +12,15 @@ const trpc = createTRPCProxyClient<AppRouter>({
 });
 
 async function main() {
-  const resp = await trpc.createTodo.mutate({
-    title: "go to gym",
-    description: "muscular body done",
-  });
+  // const resp = await trpc.createTodo.mutate({
+  //   title: "go to gym",
+  //   description: "muscular body done",
+  // });
 
+  const resp = await trpc.signUp.mutate({
+    email: "vaibhav@gmail.com",
+    password: "vaibhav@123",
+  });
   console.log(resp);
 }
 

@@ -22,9 +22,13 @@ const trpc = (0, client_1.createTRPCProxyClient)({
 });
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const resp = yield trpc.createTodo.mutate({
-            title: "go to gym",
-            description: "muscular body done",
+        // const resp = await trpc.createTodo.mutate({
+        //   title: "go to gym",
+        //   description: "muscular body done",
+        // });
+        const resp = yield trpc.signUp.mutate({
+            email: "vaibhav@gmail.com",
+            password: "vaibhav@123",
         });
         console.log(resp);
     });
