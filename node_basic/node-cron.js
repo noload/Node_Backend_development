@@ -12,7 +12,13 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log("Web server running at http://%s:%s", port);
 
-  cron.schedule("30 * * * * *", () => {
+  var task = cron.schedule("* * * * * *", () => {
     console.log("task submitted successfully ");
   });
+  setTimeout(() => {
+    task.start();
+  }, 2000);
+  setTimeout(() => {
+    task.stop();
+  }, 5000);
 });
