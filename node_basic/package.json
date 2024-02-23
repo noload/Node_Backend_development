@@ -1,0 +1,16 @@
+{
+  "name": "node_basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node-cron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "uuid": "^9.0.1"
+  }
+}
