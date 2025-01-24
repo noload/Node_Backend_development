@@ -71,3 +71,34 @@ try {
 } catch (error) {
     console.error(error.message);
 }
+
+
+function builtIn(a){
+    if (a.length < 3) {
+        throw  new  Error('array size is not upto mark')
+    }
+
+    const arr = [...new Set(a)].sort((a,b)=>b - a);
+    if (arr.length < 3) {
+        throw  new  Error('array size is not upto mark')
+    }
+
+    return arr[2];
+}
+
+console.log(builtIn(array));
+
+function find2Largest(a){
+    let first=-Infinity, second = -Infinity;
+    for (const item of a) {
+        if (item > first) {
+            second = first;
+            first = item;
+        }else if(item > second && item < first){
+            second = item;
+        }
+    }
+    return second
+}
+
+console.log("Second largest",find2Largest(a));
