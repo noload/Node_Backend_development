@@ -34,3 +34,73 @@
 //   .then((permissionStatus) => {
 //     console.log(`Geolocation permission: ${permissionStatus.state}`);
 //   });
+
+
+//closure example
+
+// function operation(){
+//     let num1=10;
+//     let num2 = 20;
+//     function add(){
+//         console.log("a + b " + num1, num2 ,  num1 + num2);
+//     }
+//     function incrementNum1(){
+//         num1+=1;
+//     }
+//     function incrementNum2(){
+//         num2+=1
+//     }
+
+//     return {add,incrementNum1,incrementNum2}
+// }
+
+// const {add,incrementNum1,incrementNum2} = operation();
+// add()
+// incrementNum1();
+// add()
+// incrementNum2()
+// add()
+
+
+function factorial(num){
+    let result =0;
+    for(let i=1;i<=num;i++){
+        result+=i
+    }
+    console.log("Factorial of "+num+ " is "+result);
+}
+
+// function memorization(cb){
+//     const cache ={};
+//     if (args in cache) {
+//         console.log("fetching from cache");
+//         console.log("Factorial of "+arg+ " is "+cache[arg]);
+
+//     }
+
+//     return result = cb()
+// }
+
+// memorization(factorial(5))
+
+
+function memoize(fn) {
+    const cache = {};
+  
+    return function (arg) {
+      if (arg in cache) {
+        console.log('Fetching from cache:', arg);
+        return cache[arg];
+      }
+  
+      console.log('Calculating result:', arg);
+      const result = fn(arg);
+      cache[arg] = result;
+      return result;
+    };
+  }
+  
+  const facto = memoize(factorial);
+  console.log(facto(5)); 
+  console.log(facto(5)); 
+   
